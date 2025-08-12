@@ -3,18 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Filmes</title>
     <link rel="stylesheet" href="style.css">
-    <title>Adivinhe o filme pelo frame</title>
 </head>
 <body>
-    <div class="caixa-principal">
-        <h1>Adivinhe o filme pelo frame</h1>
-        <div class="caixa-perguntas"></div>
-        <div class="caixa-alternativas"></div>
-        <div class="caixa-resultado">
-            <p class="texto-resultado"></p>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>Framed Quiz</h1>
         </div>
+
+        <!-- Espaço para a imagem do filme -->
+        <div id="frame-container">
+            <img id="movie-frame" src="imagens/frame-filme.jpg" alt="Frame do filme" style="display:none;">
+        </div>
+
+        <!-- Alternativas com numeração, logo abaixo da imagem -->
+        <div class="alternatives">
+            <div class="row">
+                <button class="alternative" onclick="checkAnswer(0)">1</button>
+                <button class="alternative" onclick="checkAnswer(1)">2</button>
+                <button class="alternative" onclick="checkAnswer(2)">3</button>
+                <button class="alternative" onclick="checkAnswer(3)">4</button>
+                <button class="alternative" onclick="checkAnswer(4)">5</button>
+                <button class="alternative" onclick="checkAnswer(5)">6</button>
+            </div>
+        </div>
+
+        <!-- Feedback e barra de progresso -->
+        <div id="feedback">
+            <p id="result"></p>
+            <div id="progress-bar">
+                <div class="progress" id="progress-1"></div>
+                <div class="progress" id="progress-2"></div>
+                <div class="progress" id="progress-3"></div>
+                <div class="progress" id="progress-4"></div>
+                <div class="progress" id="progress-5"></div>
+                <div class="progress" id="progress-6"></div>
+            </div>
+        </div>
+
+        <!-- Botão de próxima pergunta -->
+        <button id="next-btn" onclick="nextQuestion()">Próxima pergunta</button>
+
+        <!-- Botão de compartilhar -->
+        <button id="share-btn">SHARE</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
