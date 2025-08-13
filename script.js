@@ -1,32 +1,44 @@
+// O quiz agora só inicia quando o usuário clicar em "Sim"
+
+// Funções da tela inicial
+function startQuiz() {
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'block';
+    loadQuestion();
+}
+
+function exitQuiz() {
+    document.getElementById('start-screen').innerHTML = '<h2>Obrigado por visitar o Quiz !</h2>';
+}
 // Definindo as 8 perguntas, alternativas e resposta correta
 const questions = [
     {
-        frame: 'imagens/frame1.jpg',
+        frame: 'imagens/frame3.jpg',
         alternatives: ['O Cavaleiro das Trevas', 'Inception', 'Matrix', 'Logan', 'Interstellar', 'Titanic'],
         correct: 0 // Resposta correta é "O Cavaleiro das Trevas"
     },
     {
-        frame: 'imagens/frame2.jpg',
+        frame: 'imagens/frame5.jpg',
         alternatives: ['Duna', 'Interstellar', '2001: Uma Odisseia no Espaço', 'Star Wars', 'Gravity', 'Avatar'],
         correct: 1 // Resposta correta é "Interstellar"
     },
     {
-        frame: 'imagens/frame3.jpg',
-        alternatives: ['Procurando Nemo', 'A Vida Marinha', 'Aquaman', 'Vida de Inseto', 'Monstros S.A.', 'Shark Tale'],
-        correct: 0 // Resposta correta é "Procurando Nemo"
+        frame: 'imagens/up.webp',
+        alternatives: ['Procurando Nemo', 'A Vida Marinha', 'Aquaman', 'Vida de Inseto', 'Monstros S.A.', 'Up'],
+        correct: 5 // Resposta correta é "Up"
     },
     {
-        frame: 'imagens/frame4.jpg',
+        frame: 'imagens/futuro.jpg',
         alternatives: ['Star Wars', 'Duna', 'Interstellar', 'O Exterminador do Futuro', 'Matrix', 'A Chegada'],
         correct: 3 // Resposta correta é "O Exterminador do Futuro"
     },
     {
-        frame: 'imagens/frame5.jpg',
+        frame: 'imagens/caribre.jpg',
         alternatives: ['Jurassic Park', 'Piratas do Caribe', 'O Hobbit', 'A Guerra dos Tronos', 'Vingadores', 'Frozen'],
         correct: 1 // Resposta correta é "Piratas do Caribe"
     },
     {
-        frame: 'imagens/frame6.jpg',
+        frame: 'imagens/frame4.jpg',
         alternatives: ['Shrek', 'Toy Story', 'Vingadores', 'Up', 'Frozen', 'A Bela e a Fera'],
         correct: 0 // Resposta correta é "Shrek"
     },
@@ -56,7 +68,7 @@ function loadQuestion() {
     };
 
     // Carregar as alternativas
-    const buttons = document.querySelectorAll('.alternative');
+    const buttons = document.querySelectorAll('#quiz-section .alternative');
     buttons.forEach((button, index) => {
         button.textContent = question.alternatives[index];
     });
@@ -73,10 +85,10 @@ function checkAnswer(selected) {
     const result = document.getElementById('result');
     
     if (selected === question.correct) {
-        result.textContent = 'CORRECT!';
+        result.textContent = 'AEEE CORRETÍSSIMO!';
         progress[selected] = 'active';
     } else {
-        result.textContent = 'WRONG! Try again.';
+        result.textContent = 'OOHHH NÃO, NÃO.';
     }
 
     document.getElementById('next-btn').style.display = 'block'; // Exibe o botão de próxima pergunta
@@ -107,9 +119,14 @@ function nextQuestion() {
     if (currentQuestion < questions.length) {
         loadQuestion();
     } else {
-        document.querySelector('.quiz-container').innerHTML = '<h2>Fim do Quiz! Parabéns por jogar!</h2>';
+        document.getElementById('quiz-section').innerHTML = `
+            <h2>🎉 Fim do Quiz! 🎉</h2>
+            <p>Obrigado por jogar com a gente! Esperamos que tenha se divertido.</p>
+            <button class="start-btn" onclick="location.reload()">Jogar novamente</button>
+        `;
     }
 }
+
 
 // Carregar a primeira pergunta
 loadQuestion();
