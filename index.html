@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <!-- TELA INICIAL (com botões) -->
+     
   <div id="start-screen" class="quiz-container">
     <h1>Você quer participar do Quiz de Filmes?</h1>
    <div class="start-buttons">
@@ -15,18 +15,18 @@
     <button class="start-btn" onclick="exitQuiz()">Não</button>
 </div>
 </div>
-    <!-- Conteúdo original do quiz (oculto no início) -->
+   
     <div id="quiz-section" class="quiz-container" style="display:none;">
         <div class="header">
             <h1>Adivinhe o filme pela imagem</h1>
         </div>
 
-        <!-- Espaço para a imagem do filme -->
+       
         <div id="frame-container">
             <img id="movie-frame" src="imagens/frame-filme.jpg" alt="Frame do filme" style="display:none;">
         </div>
 
-        <!-- Alternativas com numeração, logo abaixo da imagem -->
+        
         <div class="alternatives">
             <div class="row">
                 <button class="alternative" onclick="checkAnswer(0)">1</button>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <!-- Feedback e barra de progresso -->
+       
         <div id="feedback">
             <p id="result"></p>
             <div id="progress-bar">
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <!-- Botão de próxima pergunta -->
+       
         <button id="next-btn" onclick="nextQuestion()">Próxima pergunta</button>
 
     </div>

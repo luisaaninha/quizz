@@ -1,4 +1,4 @@
-/* Estilo especial para a tela inicial */
+
 #start-screen {
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@
     transform: scale(1.05);
 }
 
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -76,7 +76,7 @@ h1 {
 }
 
 #movie-frame {
-    width: 100%; /* A imagem vai ocupar 50% da largura do container */
+    width: 100%; 
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
